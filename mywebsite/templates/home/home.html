@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mataba</title>
+
+    <!-- my fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- my icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- my style -->
+    <style>
+      :root {
+        /* --primary: rgb(6, 1, 36); */
+        --primary: #001518;
+        --bg: #ffff;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: none;
+        text-decoration: none;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg);
+        color: rgb(5, 5, 5);
+        /* color: #ffff; */
+        /* min-height: 10000px; */
+      }
+
+      .navbar {
+        background-color: var(--primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.4rem 10%;
+        background-color: rgba(1, 1, 1 0.8);
+        border-bottom: 1px solid #85858518;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+      }
+
+      .navbar .navbar-logo {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #e47900;
+      }
+      .navbar .navbar-logo span {
+        font-size: 2rem;
+        font-weight: 300;
+        color: #e47900;
+      }
+
+      .navbar .navbar-nav a {
+        color: #fff;
+        display: inline-block;
+        font-size: 1rem;
+        margin: 0 1rem;
+      }
+
+      .navbar .navbar-extra a:hover {
+        color: #e47900;
+      }
+
+      .navbar .navbar-nav a:hover {
+        color: #e47900;
+      }
+
+      .navbar .navbar-nav a::after {
+        content: "";
+        display: block;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.1rem solid #e47900;
+        transform: scalex(0);
+        transition: 0.2s linear;
+      }
+
+      .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.5);
+      }
+
+      .navbar .navbar-extra a {
+        color: #fff;
+        margin: 0 0.5rem;
+      }
+
+      /* hero section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background-image: url("static/img/headerberanda-bg.jpg");
+        background-repeat: no-repeat;
+        background-position: 0rem 5rem;
+        background-size: cover;
+      }
+
+      .hero .content {
+        padding: 1.4rem 20%;
+        max-width: 180rem;
+      }
+
+      .hero .content h1 {
+        color: #e47900;
+        font-size: 5.5em;
+        text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.637);
+        line-height: 1.2;
+        font-weight: 700%;
+      }
+
+      .hero .content p {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+        font-weight: 400;
+      }
+
+      .hero .content .cta {
+        margin-top: 3rem;
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        color: rgba(255, 255, 255, 0.836);
+        background-color: #e47a00;
+        border-radius: 50px;
+        box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.637);
+      }
+
+      /* About Section */
+      .about {
+        padding: 8rem 10% 8rem;
+      }
+
+      .about h2 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 6rem;
+      }
+
+      .about h2 span,
+      .artikel h2 span {
+        color: #e47900;
+      }
+
+      .about .row {
+        display: flex;
+      }
+
+      .about .row .about-img {
+        flex: 1 1 30rem;
+      }
+
+      .about .row .about-img img {
+        width: 100%;
+        border-radius: 1%;
+      }
+
+      .about .row .content {
+        flex: 1 20rem;
+        padding: 0 3rem;
+      }
+
+      .about .row .content h3 {
+        margin-top: 3rem;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .about .row .content p {
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+        font-weight: 100;
+        line-height: 1.6;
+      }
+      .about .row .content .button {
+        margin-top: 3rem;
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: #e47900;
+        border-radius: 50px;
+        box-shadow: 1px 1px 3px #fff;
+      }
+
+      /* jasa Section */
+
+      .jasa h2 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .jasa h2 span {
+        color: #e47900;
+      }
+
+      .jasa {
+        padding: 8rem 10% 10rem;
+      }
+
+      .jasa .sub {
+        text-align: center;
+        margin-bottom: 6rem;
+        font-size: 1.2rem;
+      }
+
+      .jasa .row {
+        display: flex;
+        background-color: #fff;
+        box-shadow: 3px 3px 10px #d3d3d3;
+        border-radius: 5px;
+      }
+
+      .jasa .row .jasa-img {
+        flex: 1 1 30rem;
+        margin-top: 3rem;
+        margin-left: 3rem;
+        font-size: 1.2rem;
+      }
+
+      .jasa .row .jasa-img .nama {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .jasa .row .jasa-img img {
+        width: 70%;
+        border-radius: 50%;
+      }
+
+      .jasa .row .content {
+        margin-top: 3rem;
+      }
+
+      .jasa .row .content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .jasa .row .content .p1 {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0.8rem;
+        margin-right: 5rem;
+        max-width: 100rem;
+        font-size: 1.2rem;
+        font-weight: 100;
+        line-height: 1.6;
+      }
+
+      .jasa .row .content .title {
+        border-top: 1px solid #85858518;
+        margin-right: 5rem;
+        margin-bottom: 1rem;
+      }
+
+      .jasa .row .content .button {
+        background-color: #f0f0f0b2;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-right: 1rem;
+        display: inline-block;
+        padding: 0.2rem 1.5rem;
+        font-size: 1.2rem;
+        color: rgb(5, 5, 5);
+        border-radius: 5px;
+      }
+      .jasa .row .content .button:hover {
+        color: #e47900;
+        border-radius: 5px;
+        box-shadow: 0.5px 1px 1px #fff;
+      }
+
+      .jasa .row .content .btn {
+        background-color: #e47900;
+        box-shadow: 1px 1px 3px #d3d3d3;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        margin-right: 3rem;
+        display: inline-block;
+        padding: 1rem 5rem;
+        font-size: 1.2rem;
+        color: #fff;
+        border-radius: 50px;
+      }
+
+      /* .jasa .row .content .btn:hover {
+        background-color: #fff;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        margin-right: 3rem;
+        display: inline-block;
+        padding: 1rem 5rem;
+        font-size: 1.2rem;
+        color: #e47900;
+        border-radius: 50px;
+      } */
+
+      .jasa .row .content .btn1:hover {
+        box-shadow: 1px 1px 3px #e47900;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        margin-right: 3rem;
+        display: inline-block;
+        padding: 1rem 5rem;
+        font-size: 1.2rem;
+        color: #e47900;
+        border-radius: 50px;
+      }
+
+      .jasa .row .content .btn1 {
+        background-color: #fff;
+        box-shadow: 1px 1px 3px #d3d3d3;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        margin-right: 3rem;
+        display: inline-block;
+        padding: 1rem 5rem;
+        font-size: 1.2rem;
+        color: rgb(5, 5, 5);
+        border-radius: 50px;
+      }
+
+      /* Artikel section */
+      .artikel {
+        padding: 8rem 10% 8rem;
+      }
+      .artikel .btn {
+        text-align: center;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .artikel .row .content .button {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        display: flex;
+        flex-wrap: wrap;
+        color: rgb(5, 5, 5);
+        font-size: 1.3rem;
+        line-height: 1.3rem;
+      }
+
+      .artikel h2 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .artikel .sub,
+      .kontak p {
+        flex-wrap: wrap;
+        text-align: center;
+        margin-bottom: 4rem;
+        font-size: 1.2rem;
+      }
+
+      .artikel .row {
+        border-radius: 3% 3% 1% 1%;
+        background-color: #ffffff;
+        margin-right: 2%;
+        box-shadow: 2px 2px 10px rgb(175, 175, 175);
+        margin-top: 3%;
+      }
+
+      .artikel .row .artikel-img {
+        flex: 1 1 30rem;
+      }
+
+      .artikel .row .artikel-img img {
+        width: 100%;
+        border-radius: 3% 3% 0% 0%;
+      }
+
+      .artikel .row .content {
+        padding: 0 2rem;
+        margin-top: 2rem;
+      }
+
+      .artikel .row .content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        max-width: 30rem;
+      }
+
+      .artikel .row .content p {
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+        font-weight: 100;
+        line-height: 1.5;
+        max-width: 30rem;
+      }
+      .artikel .tombol {
+        margin-top: 6rem;
+        margin-bottom: 4rem;
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: #e47900;
+        border-radius: 50px;
+      }
+
+      .artikel .row .content .button:hover {
+        color: #e47900;
+      }
+
+      /* contact */
+      .kontak {
+        padding: 0rem 10% 6rem;
+      }
+
+      .kontak h2 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .kontak h2 span {
+        color: #e47900;
+      }
+
+      .kontak p {
+        margin: auto;
+        max-width: 30rem;
+        line-height: 2rem;
+        font-size: 1.2rem;
+      }
+
+      .kontak .row {
+        display: flex;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+
+        background-color: #85858518;
+        flex-wrap: wrap;
+      }
+
+      .kontak .row .map {
+        flex: 1 1 45rem;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--primary);
+        flex-wrap: wrap;
+        color: #fff;
+      }
+
+      footer .containerfoot {
+        /* justify-content: center; */
+        display: flex;
+        padding: 8rem 7rem;
+      }
+
+      footer .containerfoot .row {
+        margin: 5rem;
+      }
+
+      footer .containerfoot .row .col h4 {
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      footer .containerfoot .row .col p {
+        line-height: 1.5;
+        max-width: 20rem;
+        font-size: 1.2rem;
+      }
+
+      footer .containerfoot .row .col .list {
+        list-style: none;
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+
+      footer .containerfoot .row .col .list a {
+        display: flex;
+        color: #fff;
+      }
+
+      footer .containerfoot .row .col .list a:hover {
+        color: #e47900;
+      }
+
+      footer .copyrigh .credit {
+        justify-content: center;
+        border-top: 3px solid #85858518;
+        display: flex;
+        padding: 0.5rem 10% 0rem;
+      }
+      footer .copyrigh .credit p a {
+        color: #e47900;
+      }
+
+      footer .copyrigh .credit .sosial {
+        margin: 0rem 1rem;
+      }
+
+      footer .copyrigh .credit .sosial a {
+        margin: 0rem 0.5rem;
+        color: #fff;
+      }
+
+      footer .copyrigh .credit .sosial a:hover {
+        color: #e47900;
+      }
+
+      /* Media Queris */
+      /* laptop */
+      @media (max-width: 1366px) {
+        html {
+          font-size: 75%;
+        }
+      }
+
+      /* tablet */
+      @media (max-width: 758px) {
+        html {
+          font-size: 62.5%;
+        }
+
+        .artikel .container {
+          flex-wrap: wrap;
+        }
+      }
+
+      /* phone */
+      @media (max-width: 450px) {
+        html {
+          font-size: 55%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">Mataba </a>
+
+      <div class="navbar-nav">
+        <a href="#">BERANDA</a>
+        <a href="/about">TENTANG</a>
+        <a href="/blog">BLOG</a>
+        <a href="/jasa">JASA</a>
+        <a href="#contact">KONTAK</a>
+      </div>
+      <div class="navbar-extra">
+        <a href="#" id="shopping-cart"> <i data-feather="shopping-cart"></i></a>
+        <img src="" alt="" />
+      </div>
+    </nav>
+    <!-- Hero section start -->
+    <section class="hero" id="home">
+      <main class="content">
+        <p>WILAYAH NUSA TENGGARA BARAT</p>
+        <h1>Melayani Jasa Konstruksi & Interior</h1>
+        <a href="#jasa" class="cta">Detail Jasa</a>
+      </main>
+    </section>
+    <!-- Hero section end -->
+
+    <!-- About section start -->
+    <section id="about" class="about">
+      <h2><span>Tentang</span> Kami</h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="static/img/tentang-kami.jpg" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Mataba</h3>
+          <p>
+            Mataba adalah UMKM yang bergerak di bidang pelayanan Jasa Konstruksi
+            dan Interior, kami menerima pelayanan khusus wilayah NTB. dijamin
+            anda akan puas dengan memilih jasa kami.
+          </p>
+          <p>Kami siap mengerjakan project sesuai desain yang anda inginkan</p>
+          <a href="/about" class="button">Tentang</a>
+        </div>
+      </div>
+    </section>
+    <!-- About section end -->
+
+    <!-- Jasa section start -->
+    <section id="jasa" class="jasa">
+      <h2><span>Jasa</span> Kami</h2>
+      <p class="sub">Ringkasan jasa yang kami tawarkan</p>
+      <div class="container">
+        <div class="row">
+          <div class="jasa-img">
+            <img src="../static/img/jasa/jasa-profil.jpg" alt="jasa-img" />
+            <h3 class="nama">Junaiddin Usman</h3>
+            <p>Ratting</p>
+            <p>0 Points</p>
+            <p>#Belum ada peringkat</p>
+          </div>
+          <div class="content">
+            <h3>Konstruksi dan Interior rumah dan bangunan lainya</h3>
+            <p class="p1">
+              Mataba adalah UMKM yang bergerak di bidang pelayanan Jasa
+              Konstruksi dan Interior, kami menerima pelayanan khusus wilayah
+              NTB. dijamin anda akan puas dengan memilih jasa kami. Kami siap
+              mengerjakan project sesuai desain yang anda inginkan
+            </p>
+
+            <a href="#" class="button">Konstruksi</a>
+            <a href="#" class="button">Interior</a>
+            <a href="#" class="button">Mebel</a>
+            <a href="#" class="button">Paket lengkap</a>
+            <div class="title"></div>
+            <a href="#" class="btn">Detail jasa</a>
+            <a href="#" class="btn1">Ambil Jasa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Jasa section end -->
+
+    <!-- Artikel section start -->
+    <section id="artikel" class="artikel">
+      <h2><span>Artikel</span> Kami</h2>
+      <p class="sub">
+        Untuk mengetahui lebih lanjut, simak artikel berikut ini
+      </p>
+      <div class="container">
+        <div class="row">
+          <div class="artikel-img">
+            <img src="../static/img/artikel/mebel.jpg" alt="image blog" />
+          </div>
+          <div class="content">
+            <h3>Project Furniture interior Desa Tolo'oi Tarano</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. vitae
+              cupiditate ipsa dolorum nesciunt nesciunt.
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Molestias, nesciunt?
+            </p>
+            <a href="#" class="button"
+              >Selengkapnya <i data-feather="chevron-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="artikel-img">
+            <img
+              src="../static/img/artikel/konstruksi.jpg"
+              alt="Tentang Kami"
+            />
+          </div>
+          <div class="content">
+            <h3>Project perumahan Kab. Bima</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              ipsa aliquid explicabo excepturi officia voluptate.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+              temporibus.
+            </p>
+            <a href="#" class="button"
+              >Selengkapnya <i data-feather="chevron-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="artikel-img">
+            <img src="static/img/tentang-kami.jpg" alt="Tentang Kami" />
+          </div>
+          <div class="content">
+            <h3>Project Konstruksi, lokasi Dompu NTB</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum
+              dolore temporibus? Facilis, dolorum reprehenderit.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Veritatis, dolores?
+            </p>
+            <a href="#" class="button"
+              >Selengkapnya <i data-feather="chevron-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="btn">
+        <a href="/blog" class="tombol">Selengkapnya </a>
+      </div>
+    </section>
+    <!-- Artikel section end -->
+
+    <!-- Kontak section start -->
+    <section id="contact" class="kontak">
+      <h2><span>Kontak</span> Kami</h2>
+      <p>
+        Jika ingin mengunjungi kami ke lokasi langsung silahkan telusuri maps
+        dibawah ini
+      </p>
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2019737.9776480314!2d116.46375192705239!3d-8.615120431039053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcbbd22b7446ef1%3A0x586226b2e448a3ed!2sKabupaten%20Sumbawa%2C%20Nusa%20Tenggara%20Bar.!5e0!3m2!1sid!2sid!4v1675673338748!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
+      </div>
+    </section>
+    <!-- Kontak section end -->
+
+    <!-- Footer start -->
+    <footer>
+      <div class="containerfoot">
+        <div class="row">
+          <div class="col">
+            <h4>Tentang Kami</h4>
+            <p>
+              Mataba adalah UMKM yang bergerak di bidang pelayanan Jasa
+              Konstruksi dan Interior, kami menerima pelayanan khusus wilayah
+              NTB.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h4>Alamat</h4>
+            <p>
+              Desa Mata, Kecamatan Tarano, Kabupaten Sumbawa Nusa Tenggara Barat
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h4>Halaman</h4>
+            <ul class="list">
+              <li><a href="#">Home</a></li>
+              <li><a href="/about">Tentang</a></li>
+              <li><a href="/jasa">Jasa</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="#contact">Kontak</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h4>Ikuti kami</h4>
+            <ul class="list">
+              <li><a href="">Instagram</a></li>
+              <li><a href="">Facebook</a></li>
+              <li><a href="">WhatsApp</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyrigh">
+        <div class="credit">
+          <p>Created by <a href="">yaminkusuma</a>. | &copy; 2023.</p>
+          <div class="sosial">
+            <a href=""><i data-feather="instagram"></i></a>
+            <a href=""><i data-feather="twitter"></i></a>
+            <a href=""><i data-feather="facebook"></i></a>
+          </div>
+        </div>
+        <div class="sosial"></div>
+      </div>
+    </footer>
+    <!-- Footer  end -->
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
