@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>Sign In</title>
+    <link
+      rel="shortcut icon"
+      href="../static/img/logo-udmataba.png"
+      type="image/x-icon"
+    />
     <!-- my fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,103 +22,19 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- style css -->
-    <style>
-      :root {
-        --primary: #001518;
-        --bg: #fff;
-      }
-
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        border: none;
-        text-decoration: none;
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background-image: url("../static/img/headerberanda-bg.jpg");
-        position: relative;
-        color: rgb(5, 5, 5);
-      }
-
-      /* login */
-      .row {
-        text-align: center;
-        margin: 8rem 35%;
-      }
-
-      .row form .container {
-        margin-top: 2rem;
-        border-radius: 0.5rem;
-        padding-bottom: 4rem;
-        background-color: var(--primary);
-        box-shadow: 3px 3px 10px #d3d3d3;
-      }
-
-      .row form .container input {
-        width: 70%;
-        padding: 0.6rem;
-        font-size: 1rem;
-        color: #fff;
-        font-weight: 400;
-        border: 1px solid #fff;
-        border-radius: 0.3rem;
-        background-color: var(--primary);
-      }
-
-      h2 {
-        color: #e47900;
-        padding-top: 2rem;
-        padding-bottom: 3rem;
-        font-size: 2.5rem;
-        text-shadow: 1px 1px 3px #e47900;
-      }
-
-      .row .container .button {
-        background-color: #fff;
-        box-shadow: 1px 1px 3px #d3d3d3;
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-        display: inline-block;
-        padding: 0.6rem 4rem;
-        font-size: 1rem;
-        font-weight: 400;
-        color: #e47900;
-        border-radius: 5px;
-      }
-      .row .container .button:hover {
-        background-color: #e47900;
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-        display: inline-block;
-        padding: 0.6rem 4rem;
-        font-size: 1rem;
-        font-weight: 400;
-        color: #fff;
-        border-radius: 5px;
-      }
-
-      .row .container .pass .lp {
-        font-size: 1rem;
-        color: #fff;
-        font-weight: 400;
-      }
-
-      .row .container .pass .lp:hover {
-        font-size: 1rem;
-        color: #e47900;
-        font-weight: 400;
-      }
-    </style>
+    <link rel="stylesheet" href="../static/css/login.css" />
   </head>
   <body>
     <div class="row">
       <form method="POST" action="">
         {% csrf_token %}
         <div class="container">
-          <h2>Mataba</h2>
+          <a href="#" class="navbar-logo"
+            ><img
+              src="../static/img/lg-lgn.png"
+              alt=""
+              style="margin-top: 4rem; margin-bottom: 2rem"
+          /></a>
 
           <input name="username" type="text" placeholder="Username" required />
           <br />

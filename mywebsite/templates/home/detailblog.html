@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mataba</title>
-
+    <title>Detail artikel-Mataba</title>
+    <link
+      rel="shortcut icon"
+      href="../static/img/logo-udmataba.png"
+      type="image/x-icon"
+    />
     <!-- my fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,6 +61,10 @@
         font-size: 2rem;
         font-weight: 700;
         color: #e47900;
+      }
+
+      .navbar .navbar-logo img {
+        max-width: 50%;
       }
 
       .navbar .navbar-nav a {
@@ -207,6 +215,20 @@
         display: flex;
       }
 
+      .detail .blog-icon span {
+        margin-right: 1rem;
+        font-size: 1rem;
+        font-weight: 100;
+      }
+
+      .detail .blog-icon span i {
+        margin-right: 0.5rem;
+      }
+
+      .detail .blog-icon {
+        margin: 0 0 1rem 0;
+      }
+
       .detail .row .detail-img {
         flex: 1 1 45rem;
       }
@@ -214,6 +236,8 @@
       .detail .row .detail-img img {
         width: 100%;
         height: 35rem;
+        object-position: auto;
+        height: 100%;
         border-radius: 1%;
       }
 
@@ -258,16 +282,16 @@
         padding-left: 3rem;
       }
 
-      .detail p {
+      .detail .p1 {
         margin-bottom: 0.8rem;
-        /* max-width: 60rem; */
+        max-width: 60rem;
         font-size: 1.2rem;
-        font-weight: 100;
         line-height: 1.6;
       }
 
-      .detail h5 {
-        font-size: 1.2rem;
+      .detail h4 {
+        max-width: 60rem;
+        font-size: 1.8rem;
         margin-top: 1rem;
         margin-bottom: 0.5rem;
       }
@@ -294,10 +318,13 @@
         }
       }
     </style>
+    <!-- <link rel="stylesheet" href="../static/css/detailblog.css" /> -->
   </head>
   <body>
     <nav class="navbar">
-      <a href="#" class="navbar-logo">Mataba</a>
+      <a href="#" class="navbar-logo"
+        ><img src="../static/img/logo-udmataba.png" alt=""
+      /></a>
 
       <div class="navbar-nav">
         <a href="/">BERANDA</a>
@@ -314,7 +341,7 @@
     <!-- Hero section start -->
     <section class="hero" id="home">
       <main class="content">
-        <p>Construction & Interior</p>
+        <p>Konstruksi & Interior</p>
         <h1>Detail Artikel</h1>
       </main>
     </section>
@@ -324,7 +351,9 @@
     <section id="detail" class="detail">
       <div class="row">
         <div class="detail-img">
-          <img src="../static/img/artikel/mebel.jpg" alt="Tentang Kami" />
+          {% if blogpage.gambar %}
+          <img src="{{blogpage.gambar.url}}" alt="image blog" />
+          {% endif %}
         </div>
         <div class="content">
           <h3>Postingan Lainya</h3>
@@ -372,75 +401,18 @@
           <a href="#" class="button">Paket lengkap</a>
         </div>
       </div>
+      {% block content %}
+      <h4 class="informasi">{{blogpage.judul}}</h4>
+      <p class="blog-icon">
+        <span><i class="fa-solid fa-user"></i>{{blogpage.nama}}</span>
+        <span
+          ><i class="fa-solid fa-calendar-days"></i>{{blogpage.datetime}}</span
+        >
+      </p>
 
-      <h4 class="informasi">Project Furniture interior Desa Tolo'oi Tarano</h4>
+      <p class="p1">{{blogpage.deskripsi}}</p>
 
-      <p class="p1">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatum
-        fugiat a perspiciatis vitae, id aliquam voluptas nulla error quibusdam
-        suscipit amet molestias placeat totam mollitia blanditiis deleniti
-        nostrum laboriosam animi distinctio omnis. Aspernatur ut doloremque
-        iusto dolorum doloribus atque ex veniam, voluptates asperiores modi
-        optio aliquam, nostrum sapiente saepe.
-      </p>
-      <h5>Lorem, ipsum.</h5>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus animi
-        possimus amet necessitatibus sunt? Ratione architecto dicta, nulla
-        minima dolor delectus? Quam accusantium sequi, laboriosam totam deserunt
-        cum voluptates quod vel quas quae quibusdam molestias nam fugit
-        consequatur impedit ex, necessitatibus, architecto quia porro velit?
-        Quasi expedita facere reprehenderit optio sequi veniam fugiat ratione
-        maxime culpa incidunt minima a quibusdam placeat voluptates, sint, ex
-        aut reiciendis velit suscipit ab! Veritatis?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, quae!
-        Quaerat, sapiente explicabo? Harum, accusantium similique eum pariatur
-        aliquid obcaecati ad debitis reprehenderit dolorum nemo officiis itaque
-        consequatur aspernatur est eaque excepturi blanditiis corporis
-        cupiditate ex omnis molestias. Accusamus quo molestias rerum
-        perspiciatis consectetur cumque in sint? Doloremque eos commodi sequi
-        cumque maxime veritatis sed, laudantium corporis aliquam provident
-        eligendi quam culpa similique molestiae optio voluptatum quos quod rem.
-        Repellendus laudantium rerum praesentium. Optio nobis numquam ipsa,
-        deserunt molestiae aut nostrum cum commodi quas explicabo eos. Deserunt
-        distinctio cum, omnis blanditiis quaerat nam eius consectetur ut,
-        ducimus illum eos eveniet.
-      </p>
-      <h5>Lorem ipsum dolor sit amet.</h5>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis
-        deserunt nihil labore minima voluptatum perferendis itaque vel maiores
-        praesentium veritatis, cumque eveniet? Facilis tempora exercitationem
-        culpa iure provident quas, voluptate aut cupiditate impedit, eum dolor!
-        Delectus laboriosam dolorum rem asperiores est ipsum in, amet, dolores
-        sed eos dolore voluptatibus officia?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime
-        excepturi, odio ut quas architecto obcaecati, blanditiis nobis quia
-        impedit recusandae, laboriosam amet ducimus corporis expedita. Ipsa,
-        odit! Iste impedit, velit adipisci doloremque exercitationem totam
-        voluptas nihil asperiores perferendis quas aliquid architecto itaque
-        quod vitae vel odio voluptates cumque consequatur eligendi? Assumenda
-        tempora ipsam atque molestias impedit, corporis sint. Iste veritatis
-        enim incidunt earum tempore perspiciatis exercitationem, totam nulla
-        reiciendis! Optio ipsam assumenda repellat necessitatibus, temporibus
-        est soluta voluptatum aperiam odio voluptates labore nihil impedit
-        quaerat repellendus ex, cupiditate sint accusantium minima porro culpa
-        quam blanditiis! Possimus sed illo placeat dicta laborum, aliquam cum,
-        ipsum, quos ad qui magnam adipisci amet ducimus dignissimos voluptatum.
-        Aliquid hic beatae sequi rem, quis amet quod eius architecto unde dicta
-        explicabo, libero excepturi ex et? Illum, at facilis? Laboriosam ad,
-        quidem consequuntur, eveniet soluta aperiam eos ut ex asperiores
-        reprehenderit minima eum. Debitis dignissimos tempora recusandae quod,
-        omnis maxime laborum praesentium rem. Accusantium praesentium ut facilis
-        magnam perspiciatis, quas voluptas iusto cumque ea, eveniet porro amet
-        incidunt hic vero numquam illo eligendi fugiat omnis rerum ipsa! Nam
-        minima mollitia maxime distinctio quae voluptatum fugiat, nihil odio,
-        minus ut nesciunt consequatur, consectetur sit adipisci magni aliquam?
-      </p>
+      {% endblock %}
     </section>
     <!-- detailblog section end -->
 
@@ -461,7 +433,8 @@
           <div class="col">
             <h4>Alamat</h4>
             <p>
-              Desa Mata, Kecamatan Tarano, Kabupaten Sumbawa Nusa Tenggara Barat
+              UD.Mataba Dusun Mata Rt.001/ Rw.001, Desa Mata, Kecamatan Tarano,
+              Kabupaten Sumbawa Nusa Tenggara Barat
             </p>
           </div>
         </div>
@@ -481,9 +454,46 @@
           <div class="col">
             <h4>Ikuti kami</h4>
             <ul class="list">
-              <li><a href="">Instagram</a></li>
-              <li><a href="">Facebook</a></li>
-              <li><a href="">WhatsApp</a></li>
+              <li>
+                <a href=""
+                  ><i
+                    class="fa-brands fa-instagram"
+                    style="
+                      margin-right: 0.5rem;
+                      line-height: 2rem;
+                      font-size: 20px;
+                    "
+                  ></i
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a href=""
+                  ><i
+                    class="fa-brands fa-facebook-f"
+                    style="
+                      margin-right: 0.5rem;
+                      line-height: 2rem;
+
+                      font-size: 20px;
+                    "
+                  ></i
+                  >Facebook</a
+                >
+              </li>
+              <li>
+                <a href=""
+                  ><i
+                    class="fa-brands fa-whatsapp"
+                    style="
+                      margin-right: 0.5rem;
+                      line-height: 2rem;
+                      font-size: 20px;
+                    "
+                  ></i
+                  >WhatsApp</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -506,5 +516,9 @@
     <script>
       feather.replace();
     </script>
+    <script
+      src="https://kit.fontawesome.com/d157dab1d8.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

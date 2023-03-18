@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mataba</title>
+    <title>Artikel-Mataba</title>
+    <link
+      rel="shortcut icon"
+      href="../static/img/logo-udmataba.png"
+      type="image/x-icon"
+    />
 
     <!-- my fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +26,7 @@
     <style>
       :root {
         --primary: #001518;
-        --bg: #fff;
+        --bg: #f3f3f3;
       }
 
       * {
@@ -53,10 +58,8 @@
         z-index: 9999;
       }
 
-      .navbar .navbar-logo {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #e47900;
+      .navbar .navbar-logo img {
+        max-width: 50%;
       }
 
       .navbar .navbar-nav a {
@@ -98,7 +101,7 @@
         align-items: center;
         justify-content: center;
         background-color: var(--primary);
-        /* background-image: url ("../static/img/tentang-kami.jpg"); */
+        /* background-image: url("../static/img/bg-bg.jpg"); */
         background-position: center;
       }
 
@@ -122,12 +125,18 @@
       }
 
       /* Artikel section */
-      .container {
+      .artikel {
+        padding: 8rem 5.6% 20rem;
+      }
+
+      .artikel .cont {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
       }
-      .artikel {
-        padding: 8rem 10% 20rem;
+
+      .artikel .cont .conta {
+        width: 30%;
       }
 
       .artikel h2 {
@@ -151,7 +160,7 @@
       .artikel .row {
         border-radius: 3% 3% 1% 1%;
         background-color: #ffffff;
-        margin-right: 2%;
+        margin-right: 2rem;
         box-shadow: 2px 2px 10px rgb(175, 175, 175);
         margin-top: 3%;
       }
@@ -167,19 +176,32 @@
 
       .artikel .row .content {
         padding: 0 2rem;
-        margin-top: 2rem;
+        margin-top: 0.5rem;
       }
 
       .artikel .row .content h3 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-bottom: 1rem;
         max-width: 30rem;
+      }
+
+      .artikel .row .content .blog-icon span {
+        margin-right: 1rem;
+        font-size: 1rem;
+        font-weight: 100;
+      }
+
+      .artikel .row .content .blog-icon span i {
+        margin-right: 0.5rem;
+      }
+
+      .artikel .row .content .blog-icon {
+        margin: 0 0 1rem 0;
       }
 
       .artikel .row .content p {
         margin-bottom: 0.8rem;
         font-size: 1.2rem;
-        font-weight: 100;
         line-height: 1.5;
         max-width: 30rem;
       }
@@ -187,11 +209,12 @@
       .artikel .row .content .button {
         margin-top: 2rem;
         margin-bottom: 2rem;
+        padding-bottom: 2rem;
         font-weight: 600;
         display: flex;
         color: rgb(5, 5, 5);
-        font-size: 1.3rem;
-        line-height: 1.3rem;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
       }
 
       .artikel .row .content .button:hover {
@@ -289,7 +312,9 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="#" class="navbar-logo">Mataba</a>
+      <a href="#" class="navbar-logo"
+        ><img src="../static/img/logo-udmataba.png" alt=""
+      /></a>
 
       <div class="navbar-nav">
         <a href="/">BERANDA</a>
@@ -305,8 +330,9 @@
 
     <!-- Hero section start -->
     <section class="hero" id="home">
+      <!-- <img src="../static/img/headerberanda-bg.jpg" alt="" /> -->
       <main class="content">
-        <p>Construction & Interior</p>
+        <p>Konstruksi & Interior</p>
         <h1>Informasi Mataba</h1>
       </main>
     </section>
@@ -317,132 +343,36 @@
       <p class="sub">
         Untuk mengetahui lebih lanjut, simak artikel berikut ini
       </p>
-      <div class="container">
-        <div class="row">
-          <div class="artikel-img">
-            <img src="../static/img/artikel/mebel.jpg" alt="image blog" />
-          </div>
-          <div class="content">
-            <h3>Project Furniture interior Desa Tolo'oi Tarano</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. vitae
-              cupiditate ipsa dolorum nesciunt nesciunt.
-            </p>
+      <div class="cont">
+        {% block content %}{% for i in blogpage%}
+        <div class="conta">
+          <div class="container">
+            <div class="row">
+              <div class="artikel-img">
+                <!-- <img src="../static/img/artikel/mebel.jpg" alt="image blog" /> -->
+                {% if i.gambar %}
+                <img src="{{i.gambar.url}}" alt="image blog" />
+                {% endif %}
+              </div>
+              <div class="content">
+                <h3>{{i.judul|safe|slice:":40" }}...</h3>
+                <p class="blog-icon">
+                  <span><i class="fa-solid fa-user"></i>{{i.nama}}</span>
+                  <span
+                    ><i class="fa-solid fa-calendar-days"></i
+                    >{{i.datetime}}</span
+                  >
+                </p>
+                <p>{{i.deskripsi|safe|slice:":120" }}...</p>
 
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Molestias, nesciunt?
-            </p>
-            <a href="/detailblog" class="button"
-              >Selengkapnya <i data-feather="chevron-right"></i
-            ></a>
+                <a href="/detailblog/{{i.id}}" class="button"
+                  >Selengkapnya <i data-feather="chevron-right"></i
+                ></a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="artikel-img">
-            <img
-              src="../static/img/artikel/konstruksi.jpg"
-              alt="Tentang Kami"
-            />
-          </div>
-          <div class="content">
-            <h3>Project perumahan Kab. Bima</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              ipsa aliquid explicabo excepturi officia voluptate.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-              temporibus.
-            </p>
-            <a href="#" class="button"
-              >Selengkapnya <i data-feather="chevron-right"></i
-            ></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="artikel-img">
-            <img src="../static/img/tentang-kami.jpg" alt="Tentang Kami" />
-          </div>
-          <div class="content">
-            <h3>Project Konstruksi, lokasi Dompu NTB</h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum
-              dolore temporibus? Facilis, dolorum reprehenderit.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, dolores?
-            </p>
-            <a href="#" class="button"
-              >Selengkapnya <i data-feather="chevron-right"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="artikel-img">
-            <img src="../static/img/artikel/mebel.jpg" alt="image blog" />
-          </div>
-          <div class="content">
-            <h3>Project Furniture interior Desa Tolo'oi Tarano</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. vitae
-              cupiditate ipsa dolorum nesciunt nesciunt.
-            </p>
-
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Molestias, nesciunt?
-            </p>
-            <a href="#" class="button"
-              >Selengkapnya <i data-feather="chevron-right"></i
-            ></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="artikel-img">
-            <img
-              src="../static/img/artikel/konstruksi.jpg"
-              alt="Tentang Kami"
-            />
-          </div>
-          <div class="content">
-            <h3>Project perumahan Kab. Bima</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              ipsa aliquid explicabo excepturi officia voluptate.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-              temporibus.
-            </p>
-            <a href="#" class="button"
-              >Selengkapnya <i data-feather="chevron-right"></i
-            ></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="artikel-img">
-            <img src="../static/img/tentang-kami.jpg" alt="Tentang Kami" />
-          </div>
-          <div class="content">
-            <h3>Project Konstruksi, lokasi Dompu NTB</h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum
-              dolore temporibus? Facilis, dolorum reprehenderit.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Veritatis, dolores?
-            </p>
-            <a href="#" class="button"
-              >Selengkapnya <i data-feather="chevron-right"></i
-            ></a>
-          </div>
-        </div>
+        {% endfor %} {% endblock %}
       </div>
     </section>
     <!-- Artikel section end -->
@@ -464,7 +394,8 @@
           <div class="col">
             <h4>Alamat</h4>
             <p>
-              Desa Mata, Kecamatan Tarano, Kabupaten Sumbawa Nusa Tenggara Barat
+              UD.Mataba Dusun Mata Rt.001/ Rw.001, Desa Mata, Kecamatan Tarano,
+              Kabupaten Sumbawa Nusa Tenggara Barat
             </p>
           </div>
         </div>
@@ -484,9 +415,46 @@
           <div class="col">
             <h4>Ikuti kami</h4>
             <ul class="list">
-              <li><a href="">Instagram</a></li>
-              <li><a href="">Facebook</a></li>
-              <li><a href="">WhatsApp</a></li>
+              <li>
+                <a href=""
+                  ><i
+                    class="fa-brands fa-instagram"
+                    style="
+                      margin-right: 0.5rem;
+                      line-height: 2rem;
+                      font-size: 20px;
+                    "
+                  ></i
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a href=""
+                  ><i
+                    class="fa-brands fa-facebook-f"
+                    style="
+                      margin-right: 0.5rem;
+                      line-height: 2rem;
+
+                      font-size: 20px;
+                    "
+                  ></i
+                  >Facebook</a
+                >
+              </li>
+              <li>
+                <a href=""
+                  ><i
+                    class="fa-brands fa-whatsapp"
+                    style="
+                      margin-right: 0.5rem;
+                      line-height: 2rem;
+                      font-size: 20px;
+                    "
+                  ></i
+                  >WhatsApp</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -509,5 +477,9 @@
     <script>
       feather.replace();
     </script>
+    <script
+      src="https://kit.fontawesome.com/d157dab1d8.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
