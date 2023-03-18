@@ -150,13 +150,13 @@ JAZZMIN_SETTINGS = {
     # "site_logo": "books/img/logo.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": "../static/img/lg-lgn.png",
+    "login_logo": "../static/img/logo-02.png",
 
     # Logo to use for login form in dark themes (defaults to login_logo)
     "login_logo_dark": None,
 
     # CSS classes that are applied to the logo above
-    "site_logo": "../static/img/logo-udmataba.png",
+    "site_logo": "../static/img/logo-04.png",
 
     # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
     "site_icon": None,

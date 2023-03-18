@@ -7,7 +7,7 @@
     <title>Jasa-Mataba</title>
     <link
       rel="shortcut icon"
-      href="../static/img/logo-udmataba.png"
+      href="../static/img/logo-04.png"
       type="image/x-icon"
     />
     <!-- my fonts -->
@@ -23,17 +23,350 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- my style -->
-    <link rel="stylesheet" href="../static/css/jasa.css" />
+    <!-- <link rel="stylesheet" href="../static/css/jasa.css" /> -->
     <style>
+      :root {
+        --primary: #001518;
+        --bg: #fff;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: none;
+        text-decoration: none;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg);
+        color: rgb(5, 5, 5);
+        /* min-height: 2000px; */
+      }
+
+      .navbar {
+        background-color: var(--primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.4rem 10%;
+        background-color: rgba(1, 1, 1 0.8);
+        border-bottom: 1px solid #85858518;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+      }
+
+      .navbar .navbar-logo {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #e47900;
+      }
+
       .navbar .navbar-logo img {
         max-width: 50%;
+      }
+
+      .navbar .navbar-nav a {
+        color: #fff;
+        display: inline-block;
+        font-size: 1rem;
+        margin: 0 1rem;
+      }
+
+      .navbar .navbar-extra a:hover {
+        color: #e47900;
+      }
+
+      .navbar .navbar-nav a:hover {
+        color: #e47900;
+      }
+
+      .navbar .navbar-nav a::after {
+        content: "";
+        display: block;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.1rem solid #e47900;
+        transform: scalex(0);
+        transition: 0.2s linear;
+      }
+
+      .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.5);
+      }
+
+      .navbar .navbar-extra a {
+        color: #fff;
+        margin: 0 0.5rem;
+      }
+      /* hero section */
+      .hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: var(--primary); */
+        background-image: linear-gradient(
+            rgba(0, 10, 10, 0.8) 50%,
+            rgba(0, 10, 10, 0.8) 50%
+          ),
+          url("../static/img/bg-bg.jpg");
+        background-position: center;
+      }
+
+      .hero .content {
+        max-width: 40rem;
+        text-align: center;
+      }
+
+      .hero .content h1 {
+        color: #fff;
+        font-size: 4em;
+        line-height: 1.2;
+      }
+
+      .hero .content p {
+        color: #e47900;
+        font-size: 1.4rem;
+        margin-top: 0.8rem;
+        line-height: 2;
+        /* font-weight: 100; */
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--primary);
+        flex-wrap: wrap;
+        color: #fff;
+      }
+
+      footer .containerfoot {
+        /* justify-content: center; */
+        display: flex;
+        padding: 8rem 7rem;
+      }
+
+      footer .containerfoot .row {
+        margin: 5rem;
+      }
+
+      footer .containerfoot .row .col h4 {
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      footer .containerfoot .row .col p {
+        line-height: 1.5;
+        max-width: 20rem;
+        font-size: 1.2rem;
+      }
+
+      footer .containerfoot .row .col .list {
+        list-style: none;
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+
+      footer .containerfoot .row .col .list a {
+        display: flex;
+        color: #fff;
+      }
+
+      footer .containerfoot .row .col .list a:hover {
+        color: #e47900;
+      }
+
+      footer .copyrigh .credit {
+        justify-content: center;
+        border-top: 3px solid #85858518;
+        display: flex;
+        padding: 0.5rem 10% 0rem;
+      }
+      footer .copyrigh .credit p a {
+        color: #e47900;
+      }
+
+      footer .copyrigh .credit .sosial {
+        margin: 0rem 1rem;
+      }
+
+      footer .copyrigh .credit .sosial a {
+        margin: 0rem 0.5rem;
+        color: #fff;
+      }
+
+      footer .copyrigh .credit .sosial a:hover {
+        color: #e47900;
+      }
+
+      /* jasa Section */
+      .jasa {
+        padding: 10rem 10% 10rem;
+      }
+
+      .jasa .row {
+        display: flex;
+        background-color: #fff;
+        box-shadow: 3px 3px 10px #d3d3d3;
+        border-radius: 5px;
+      }
+
+      .jasa .row .jasa-img {
+        flex: 1 1 25rem;
+        margin-top: 3rem;
+        margin-left: 3rem;
+        font-size: 1.2rem;
+      }
+
+      .jasa .row .jasa-img .nama {
+        margin-top: 1rem;
+      }
+
+      .jasa .row .jasa-img img {
+        width: 100px;
+        border-radius: 50%;
+      }
+
+      .jasa .row .content {
+        margin-top: 3rem;
+      }
+
+      .jasa .row .content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .jasa .row .content .p1 {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0.8rem;
+        margin-right: 4rem;
+        max-width: 100rem;
+        font-size: 1.2rem;
+        line-height: 1.6;
+      }
+
+      .jasa .row .content .border {
+        border-top: 1px solid #85858518;
+        margin-bottom: 2rem;
+        margin-right: 4rem;
+      }
+
+      .jasa .row .content .col {
+        display: flex;
+      }
+
+      .jasa .row .content .col .title {
+        margin-right: 8rem;
+        margin-bottom: 3rem;
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+
+      .jasa .row .content .col .title-value {
+        margin-right: 3rem;
+        font-size: 1.2rem;
+        text-align: end;
+        line-height: 2rem;
+      }
+
+      .jasa .row .content .button {
+        background-color: #f0f0f0b2;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        margin-right: 1rem;
+        display: inline-block;
+        padding: 0.2rem 1.5rem;
+        font-size: 1.2rem;
+        color: rgb(5, 5, 5);
+        border-radius: 5px;
+      }
+      .jasa .row .content .button:hover {
+        color: #fff;
+        background-color: #e47900;
+        border-radius: 5px;
+        box-shadow: 0.5px 1px 1px #d3d3d3;
+      }
+
+      .jasa .row .content .btn1 {
+        background-color: #e47900;
+        box-shadow: 1px 1px 3px #d3d3d3;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-right: 3rem;
+        display: inline-block;
+        padding: 1rem 5rem;
+        font-size: 1.2rem;
+        color: #fff;
+        border-radius: 50px;
+      }
+      .jasa .row .content .btn1:hover {
+        background-color: #e47900;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-right: 3rem;
+        display: inline-block;
+        padding: 1rem 5rem;
+        font-size: 1.2rem;
+        color: #fff;
+        border-radius: 50px;
+      }
+
+      .jasa .row .content .btn {
+        background-color: #fff;
+        box-shadow: 1px 1px 3px #d3d3d3;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        margin-right: 3rem;
+        display: inline-block;
+        padding: 1rem 5rem;
+        font-size: 1.2rem;
+        color: rgb(5, 5, 5);
+        border-radius: 50px;
+      }
+
+      .jasa .row .content .btn:hover {
+        box-shadow: 1px 1px 3px #e47900;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        margin-right: 3rem;
+        display: inline-block;
+        padding: 1rem 5rem;
+        font-size: 1.2rem;
+        color: #e47900;
+        border-radius: 50px;
+      }
+
+      /* Media Queris */
+      /* laptop */
+      @media (max-width: 1366px) {
+        html {
+          font-size: 75%;
+        }
+      }
+
+      /* tablet */
+      @media (max-width: 758px) {
+        html {
+          font-size: 62.5%;
+        }
+      }
+
+      /* phone */
+      @media (max-width: 450px) {
+        html {
+          font-size: 55%;
+        }
       }
     </style>
   </head>
   <body>
     <nav class="navbar">
       <a href="#" class="navbar-logo"
-        ><img src="../static/img/logo-udmataba.png" alt=""
+        ><img src="../static/img/logo03.png" alt=""
       /></a>
 
       <div class="navbar-nav">

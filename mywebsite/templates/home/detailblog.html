@@ -7,7 +7,7 @@
     <title>Detail artikel-Mataba</title>
     <link
       rel="shortcut icon"
-      href="../static/img/logo-udmataba.png"
+      href="../static/img/logo-04.png"
       type="image/x-icon"
     />
     <!-- my fonts -->
@@ -57,12 +57,6 @@
         z-index: 9999;
       }
 
-      .navbar .navbar-logo {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #e47900;
-      }
-
       .navbar .navbar-logo img {
         max-width: 50%;
       }
@@ -106,8 +100,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--primary);
-        /* background-image: url ("../static/img/tentang-kami.jpg"); */
+        /* background-color: var(--primary); */
+        background-image: linear-gradient(
+            rgba(0, 10, 10, 0.8) 50%,
+            rgba(0, 10, 10, 0.8) 50%
+          ),
+          url("../static/img/bg-bg.jpg");
         background-position: center;
       }
 
@@ -127,7 +125,7 @@
         font-size: 1.4rem;
         margin-top: 0.8rem;
         line-height: 2;
-        font-weight: 100;
+        /* font-weight: 100; */
       }
 
       /* Footer */
@@ -322,9 +320,10 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="#" class="navbar-logo"
-        ><img src="../static/img/logo-udmataba.png" alt=""
-      /></a>
+      <nav class="navbar">
+        <a href="#" class="navbar-logo"
+          ><img src="../static/img/logo03.png" alt=""
+        /></a>
 
       <div class="navbar-nav">
         <a href="/">BERANDA</a>

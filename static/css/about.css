@@ -25,6 +25,7 @@ body {
   align-items: center;
   padding: 1.4rem 10%;
   background-color: rgba(1, 1, 1 0.8);
+  border-bottom: 1px solid #85858518;
   position: fixed;
   top: 0;
   left: 0;
@@ -77,8 +78,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary);
-  /* background-image: url ("../static/img/tentang-kami.jpg"); */
+  /* background-color: var(--primary); */
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.6) 50%
+    ),
+    url("../static/img/bg-bg.jpg");
   background-position: center;
 }
 

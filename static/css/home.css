@@ -86,7 +86,7 @@ body {
 
 /* hero section */
 .hero {
-  /* background-image: url("../static/img/headerberanda-bg.jpg"); */
+  background-image: url("../static/img/headerhome-bg.jpg");
   min-height: 100vh;
   display: flex;
   align-items: center;
