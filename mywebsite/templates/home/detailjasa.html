@@ -27,7 +27,7 @@
     <style>
       :root {
         --primary: #001518;
-        --bg: #f3f3f3;
+        --bg: #fff;
       }
 
       * {
@@ -36,6 +36,10 @@
         box-sizing: border-box;
         border: none;
         text-decoration: none;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
@@ -52,21 +56,12 @@
         align-items: center;
         padding: 1.4rem 10%;
         background-color: rgba(1, 1, 1 0.8);
+        border-bottom: 1px solid #85858518;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         z-index: 9999;
-      }
-
-      .navbar .navbar-logo {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #e47900;
-      }
-
-      .navbar .navbar-logo img {
-        max-width: 50%;
       }
 
       .navbar .navbar-logo img {
@@ -105,6 +100,7 @@
         color: #fff;
         margin: 0 0.5rem;
       }
+
       /* hero section */
       .hero {
         min-height: 60vh;
@@ -119,6 +115,7 @@
           url("../static/img/bg-bg.jpg");
         background-position: center;
       }
+
       .hero .content {
         max-width: 40rem;
         text-align: center;

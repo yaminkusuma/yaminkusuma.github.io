@@ -38,9 +38,11 @@
         font-family: "Poppins", sans-serif;
         background-color: var(--bg);
         color: rgb(5, 5, 5);
-        /* min-height: 2000px; */
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
       .navbar {
         background-color: var(--primary);
         display: flex;
@@ -56,14 +58,12 @@
         z-index: 9999;
       }
 
-      .navbar .navbar-logo {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #e47900;
+      .navbar .navbar-logo img {
+        max-width: 50%;
       }
 
       .navbar .navbar-logo img {
-        max-width: 50%;
+        max-width: 150px;
       }
 
       .navbar .navbar-nav a {
@@ -253,11 +253,6 @@
         margin-top: 1rem;
         margin-bottom: 0.5rem;
       }
-
-      /* .jasa .row .jasa-img img {
-  width: 70%;
-  border-radius: 50%;
-} */
 
       .jasa .row .content {
         margin-top: 3rem;
@@ -608,6 +603,14 @@
       @media (max-width: 450px) {
         html {
           font-size: 55%;
+        }
+
+        .about .row {
+          flex-wrap: wrap;
+        }
+
+        .artikel .cont {
+          flex-wrap: wrap;
         }
       }
     </style>

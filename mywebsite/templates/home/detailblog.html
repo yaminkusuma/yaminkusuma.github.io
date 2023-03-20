@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail artikel-Mataba</title>
+    <title>Detail artikel</title>
     <link
       rel="shortcut icon"
       href="../static/img/logo-04.png"
@@ -36,6 +36,10 @@
         text-decoration: none;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Poppins", sans-serif;
         background-color: var(--bg);
@@ -50,6 +54,7 @@
         align-items: center;
         padding: 1.4rem 10%;
         background-color: rgba(1, 1, 1 0.8);
+        border-bottom: 1px solid #85858518;
         position: fixed;
         top: 0;
         left: 0;
@@ -58,7 +63,7 @@
       }
 
       .navbar .navbar-logo img {
-        max-width: 50%;
+        max-width: 150px;
       }
 
       .navbar .navbar-nav a {
@@ -125,7 +130,7 @@
         font-size: 1.4rem;
         margin-top: 0.8rem;
         line-height: 2;
-        /* font-weight: 100; */
+        font-weight: 100;
       }
 
       /* Footer */
@@ -320,10 +325,9 @@
   </head>
   <body>
     <nav class="navbar">
-      <nav class="navbar">
-        <a href="#" class="navbar-logo"
-          ><img src="../static/img/logo03.png" alt=""
-        /></a>
+      <a href="#" class="navbar-logo"
+        ><img src="../static/img/logo03.png" alt=""
+      /></a>
 
       <div class="navbar-nav">
         <a href="/">BERANDA</a>
@@ -432,8 +436,7 @@
           <div class="col">
             <h4>Alamat</h4>
             <p>
-              UD.Mataba Dusun Mata Rt.001/ Rw.001, Desa Mata, Kecamatan Tarano,
-              Kabupaten Sumbawa Nusa Tenggara Barat
+              Desa Mata, Kecamatan Tarano, Kabupaten Sumbawa Nusa Tenggara Barat
             </p>
           </div>
         </div>
