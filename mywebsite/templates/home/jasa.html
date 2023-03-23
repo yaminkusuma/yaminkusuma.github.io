@@ -202,8 +202,9 @@
       }
 
       /* jasa Section */
-      .jasa {
-        padding: 10rem 10% 10rem;
+
+      .jasa .container {
+        padding: 4rem 10% 0rem;
       }
 
       .jasa .row {
@@ -390,6 +391,7 @@
     <!-- Hero section end -->
 
     <!-- Jasa section start -->
+    <div class="kosong" style="margin-bottom: 6rem"></div>
     {% block content %}{% for i in jasapage%}
     <section id="jasa" class="jasa">
       <div class="container">
@@ -499,6 +501,7 @@
     </section>
     {% endfor %} {% endblock %}
     <!-- Jasa section end -->
+    <div class="kosong" style="margin-bottom: 10rem"></div>
 
     <!-- Footer start -->
     <footer>

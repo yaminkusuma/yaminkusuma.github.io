@@ -235,102 +235,95 @@
         font-size: 1.2rem;
       }
 
+      .jasa .container {
+        display: flex;
+        margin-bottom: 2rem;
+      }
       .jasa .row {
         display: flex;
+        /* flex-wrap: wrap; */
         background-color: #fff;
         box-shadow: 3px 3px 10px #d3d3d3;
         border-radius: 5px;
+        justify-content: center;
+        margin-right: 2rem;
       }
 
-      .jasa .row .jasa-img {
-        flex: 1 1 25rem;
-        margin-top: 3rem;
-        margin-left: 3rem;
-        font-size: 1.2rem;
-      }
-
-      .jasa .row .jasa-img .nama {
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
+      .jasa .row .jasa-img img {
+        width: 150px;
+        border-radius: 100px;
+        margin-top: 2rem;
+        margin-left: 2rem;
       }
 
       .jasa .row .content {
-        margin-top: 3rem;
+        margin-top: 1rem;
       }
 
       .jasa .row .content h3 {
-        font-size: 1.8rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        color: black;
+        font-size: 1.5rem;
         margin-bottom: 1rem;
+        margin-top: 1rem;
+        max-width: 40rem;
+      }
+      .jasa .row .content h3:hover {
+        color: rgba(0, 0, 255, 0.705);
+        text-decoration: underline;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        max-width: 40rem;
       }
 
       .jasa .row .content .p1 {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 0.8rem;
-        margin-right: 5rem;
-        max-width: 100rem;
+        margin-bottom: 0.5rem;
         font-size: 1.2rem;
         line-height: 1.6;
       }
 
-      .jasa .row .content .title {
-        border-top: 1px solid #85858518;
-        margin-right: 5rem;
-        margin-bottom: 1rem;
+      .jasa .row .content .col {
+        display: flex;
       }
 
-      .jasa .row .content .button {
-        background-color: #f0f0f0b2;
-        margin-top: 2rem;
+      .jasa .row .content .col .title {
+        padding-right: 10rem;
         margin-bottom: 2rem;
-        margin-right: 1rem;
-        display: inline-block;
-        padding: 0.2rem 1.5rem;
         font-size: 1.2rem;
-        color: rgb(5, 5, 5);
-        border-radius: 5px;
-      }
-      .jasa .row .content .button:hover {
-        color: #e47900;
-        border-radius: 5px;
-        box-shadow: 0.5px 1px 1px #fff;
+        line-height: 2rem;
+        margin-left: 2rem;
       }
 
-      .jasa .row .content .btn {
-        background-color: #e47900;
-        box-shadow: 1px 1px 3px #d3d3d3;
-        margin-top: 2rem;
-        margin-bottom: 4rem;
-        margin-right: 3rem;
+      .jasa .row .content .col .title-value {
+        font-size: 1.2rem;
+        text-align: end;
+        line-height: 2rem;
+        padding-left: 4rem;
+        margin-right: 2rem;
+        /* font-weight: 600; */
+      }
+
+      .jasa .row .content .titl {
+        border-top: 1px solid #85858518;
+        margin-right: 2.5rem;
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+      }
+
+      .jasa .btn {
+        text-align: center;
+      }
+      .jasa .tombol {
+        margin-top: 4rem;
         display: inline-block;
-        padding: 1rem 5rem;
+        padding: 1rem 2rem;
         font-size: 1.2rem;
         color: #fff;
-        border-radius: 50px;
-      }
-
-      .jasa .row .content .btn1:hover {
-        box-shadow: 1px 1px 3px #e47900;
-        margin-top: 2rem;
-        margin-bottom: 4rem;
-        margin-right: 3rem;
-        display: inline-block;
-        padding: 1rem 5rem;
-        font-size: 1.2rem;
-        color: #e47900;
-        border-radius: 50px;
-      }
-
-      .jasa .row .content .btn1 {
-        background-color: #fff;
-        box-shadow: 1px 1px 3px #d3d3d3;
-        margin-top: 2rem;
-        margin-bottom: 4rem;
-        margin-right: 3rem;
-        display: inline-block;
-        padding: 1rem 5rem;
-        font-size: 1.2rem;
-        color: rgb(5, 5, 5);
+        background-color: #e47900;
         border-radius: 50px;
       }
 
@@ -671,39 +664,56 @@
     <!-- About section end -->
 
     <!-- Jasa section start -->
-    {% for j in jasapage%}
     <section id="jasa" class="jasa">
       <h2><span>Jasa</span> Kami</h2>
       <p class="sub">Ringkasan jasa yang kami tawarkan</p>
       <div class="container">
+        {% for j in jasapage%}
         <div class="row">
           <div class="jasa-img">
             {% if j.gambar %}
-            <img
-              src="{{j.gambar.url}}"
-              alt=""
-              style="width: 200px; height: 200px; border-radius: 100%"
-            />
+            <img src="{{j.gambar.url}}" alt="" />
             {% endif %}
-            <h3 class="nama">{{j.nama}}</h3>
-            <i class="fa-solid fa-star" style="color: rgb(175, 175, 175)"></i>
-            <i class="fa-solid fa-star" style="color: rgb(175, 175, 175)"></i>
-            <i class="fa-solid fa-star" style="color: rgb(175, 175, 175)"></i>
-            <i class="fa-solid fa-star" style="color: rgb(175, 175, 175)"></i>
-            <i class="fa-solid fa-star" style="color: rgb(175, 175, 175)"></i>
-            <p style="margin-bottom: 1rem">0/10.00</p>
-            <p>0 Points</p>
           </div>
           <div class="content">
-            <h3>{{j.judul}}</h3>
-            <p class="p1">{{j.deskripsi|safe|slice:":220" }}...</p>
+            <a href="#"><h3>{{j.judul|safe|slice:":50" }}...</h3></a>
+            <div class="titl"></div>
+            <!-- <p class="p1">{{j.deskripsi|safe|slice:":60" }}...</p> -->
+            <div class="col">
+              <div class="title">
+                <div class="pep">
+                  <span class="pemilik">Pemilik</span>
+                </div>
+                <div class="pep">
+                  <span class="tanggal">Biaya</span>
+                </div>
+                <div class="pep">
+                  <span class="estimasi">Metode</span>
+                </div>
+              </div>
 
-            <a href="#" class="button">Konstruksi</a>
+              <div class="title-value">
+                <div class="pep-value">
+                  <span class="value1">{{j.nama}}</span>
+                </div>
+                <div class="pepvalue">
+                  <span class="value2" style="color: rgb(61, 61, 252)"
+                    >Rp. {{j.pembayaran}}</span
+                  >
+                  /Meter
+                </div>
+                <div class="pepvalue">
+                  <span class="value3">Tunai</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- <a href="#" class="button">Konstruksi</a>
             <a href="#" class="button">Interior</a>
             <a href="#" class="button">Mebel</a>
-            <a href="#" class="button">Paket lengkap</a>
-            <div class="title"></div>
-            <a href="/jasa" class="btn"
+            <a href="#" class="button">Paket lengkap</a> -->
+
+            <!-- <a href="/jasa" class="btn"
               ><i class="fa-solid fa-eye" style="margin-right: 0.5rem"></i>lihat
               jasa</a
             >
@@ -713,12 +723,15 @@
                 style="margin-right: 0.5rem"
               ></i
               >Ambil Jasa</a
-            >
+            > -->
           </div>
         </div>
+        {% endfor %}
+      </div>
+      <div class="btn">
+        <a href="/jasa" class="tombol">Selengkapnya </a>
       </div>
     </section>
-    {% endfor %}
     <!-- Jasa section end -->
 
     <!-- Artikel section start -->

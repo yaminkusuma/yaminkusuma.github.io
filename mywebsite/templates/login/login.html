@@ -7,7 +7,7 @@
     <title>Sign In</title>
     <link
       rel="shortcut icon"
-      href="../static/img/logo-udmataba.png"
+      href="../static/img/logo-04.png"
       type="image/x-icon"
     />
     <!-- my fonts -->
@@ -22,7 +22,101 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- style css -->
-    <link rel="stylesheet" href="../static/css/login.css" />
+    <!-- <link rel="stylesheet" href="../static/css/login.css" /> -->
+    <style>
+      :root {
+        --primary: #001518;
+        --bg: #fff;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: none;
+        text-decoration: none;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        /* background-image: url("../static/img/headerberanda-bg.jpg"); */
+        position: relative;
+        color: rgb(5, 5, 5);
+      }
+
+      /* login */
+      .row {
+        text-align: center;
+        margin: 8rem 35%;
+      }
+
+      .row form .container {
+        margin-top: 2rem;
+        border-radius: 0.5rem;
+        padding-bottom: 4rem;
+        background-color: none;
+        box-shadow: 3px 3px 10px #d3d3d3;
+      }
+
+      .row form .container input {
+        width: 70%;
+        padding: 0.8rem;
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 200;
+        border: 1px solid #000000;
+        border-radius: 0.3rem;
+        /* background-color: var(--primary); */
+      }
+
+      h2 {
+        color: #e47900;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        font-size: 2.5rem;
+        text-shadow: 1px 1px 3px #e47900;
+      }
+
+      .row .container .button {
+        background-color: rgb(0, 89, 255);
+        box-shadow: 1px 1px 3px #d3d3d3;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        display: inline-block;
+        padding: 0.8rem 11rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #fff;
+        border-radius: 5px;
+      }
+      .row .container .button:hover {
+        background-color: rgb(0, 89, 255);
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        display: inline-block;
+        padding: 0.8rem 11rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #fff;
+        border-radius: 5px;
+      }
+
+      .row .container .pass .lp {
+        font-size: 1.2rem;
+        color: blue;
+        font-weight: 400;
+        margin-bottom: 2rem;
+      }
+      .row .container .pass1 .lp1 {
+        font-size: 1.2rem;
+        color: blue;
+        font-weight: 400;
+        margin-bottom: 2rem;
+      }
+      .row .container .pass1 {
+        margin-top: 1rem;
+      }
+    </style>
   </head>
   <body>
     <div class="row">
@@ -31,7 +125,7 @@
         <div class="container">
           <a href="#" class="navbar-logo"
             ><img
-              src="../static/img/lg-lgn.png"
+              src="../static/img/logo-02.png"
               alt=""
               style="margin-top: 4rem; margin-bottom: 2rem"
           /></a>
@@ -56,6 +150,10 @@
 
           <div class="pass">
             <a href="#" class="lp">Forget password?</a>
+          </div>
+          <div class="pass1">
+            <span style="font-size: 1.2rem">Belum memiliki akun?</span
+            ><a href="#" class="lp1"> Daftar sekarang</a>
           </div>
         </div>
       </form>

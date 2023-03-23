@@ -49,6 +49,15 @@ def jasahome(req):
     except EmptyPage:
         blogpage = paginator.page(paginator.num_pages)
 
+    # page = req.GET.get('page', 1)
+    # paginator = Paginator(jasapage, 1)
+    # try:
+    #     jasapage = paginator.page(page)
+    # except PageNotAnInteger:
+    #     jasapage = paginator.page(1)
+    # except EmptyPage:
+    #     jasapage = paginator.page(paginator.num_pages)
+
     context={
         'jasapage':jasapage,
         'blogpage':blogpage,
